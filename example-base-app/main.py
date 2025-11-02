@@ -1,9 +1,13 @@
 from fastapi import FastAPI, Request
 
+from app_lifespan import lifespan
 from api import router as api_router
 
 
-app = FastAPI()
+app = FastAPI(
+    title="Example-Base-App",
+    lifespan=lifespan,
+)
 
 
 @app.get("/")

@@ -1,11 +1,14 @@
 from fastapi import FastAPI, Request
 
+from fastapi.responses import ORJSONResponse
+
 from app_lifespan import lifespan
 from api import router as api_router
 
 
 app = FastAPI(
     title="Example-Base-App",
+    default_response_class=ORJSONResponse,
     lifespan=lifespan,
 )
 
